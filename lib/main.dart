@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'config/supabase_config.dart';
-import 'chat_screen.dart';
+import 'static_travel_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const ChatScreen(),
+      home: const StaticTravelScreen(),
     );
   }
 }
