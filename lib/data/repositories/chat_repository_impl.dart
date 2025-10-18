@@ -1,21 +1,26 @@
-import 'package:travel_agent/data/api/chat_api.dart';
 import 'package:travel_agent/domain/repositories/chat_repository.dart';
 import 'package:uuid/uuid.dart';
 import '../../config/supabase_config.dart';
 import '../../domain/models/chat_message.dart';
 
 class ChatRepositoryImpl implements ChatRepository {
-  final ChatApi _api;
   final String _sessionId;
   final _uuid = const Uuid();
 
-  ChatRepositoryImpl(this._api) : _sessionId = const Uuid().v4();
+  ChatRepositoryImpl() : _sessionId = const Uuid().v4();
 
   String get sessionId => _sessionId;
 
   @override
   Future<String> sendMessage(String message) async {
-    return await _api.sendMessage(message);
+    try {
+      // For now, return a simple response. You can integrate with your AI service here
+      // This could be OpenAI, Claude, or any other AI service
+      return "I received your message: $message. This is a placeholder response.";
+    } catch (e) {
+      print('Error sending message: $e');
+      throw Exception('Failed to send message: $e');
+    }
   }
 
   Future<void> saveMessage(ChatMessage message) async {

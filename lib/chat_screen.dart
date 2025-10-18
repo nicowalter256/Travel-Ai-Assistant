@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'data/api/chat_api.dart';
 import 'data/repositories/chat_repository_impl.dart';
 import 'domain/usecases/send_chat_message.dart';
 import 'domain/models/chat_message.dart';
@@ -126,8 +125,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    final chatApi = ChatApi();
-    _chatRepository = ChatRepositoryImpl(chatApi);
+    _chatRepository = ChatRepositoryImpl();
     _sendChatMessage = SendChatMessage(_chatRepository);
 
     // Load chat history
